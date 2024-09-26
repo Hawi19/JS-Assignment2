@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+          text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2></h2>
+   <div class="container">
+   <img src="off bulb2.jpg" alt="" id="img">
+   <br>
+   <div class="btn" style="margin-top: 2%;">
+    <button type="button" onclick="on()" style="margin-right: 5%;">Turn on the light</button>
+    <button type="button" onclick="off()">Turn off the light</button>
+</div>
+
+
+</div> 
+<div style="text-align: center; margin-top: 5%;">
+<h2>Display Current Time</h2>
+<button type="button" onclick="displayTime()">Display Time</button>
+<p id="show"></p>
+</div>
+<div style="text-align: center; margin-top: 5%;">
+    <h2>Remove characters</h2>
+    <input type="text" id="txt">
+    <button type="button" onclick="remove()">Remove character</button>
+    <p id="new"></p>
+</div>
+
+<script>
+    let img = document.getElementById("img")
+    function on(){
+        img.src="on bulb2.jpg"
+
+    }
+    function off(){
+        img.src="off bulb2.jpg"
+
+    }
+function displayTime(){
+    let d = new Date();
+    let h = d.getHours();
+    let m = d.getMinutes();
+    let s = d.getSeconds();
+    
+    let x = h >= 12 ? 'pm' : 'am';
+            h = h % 12;
+            h = h ? h : 12;
+            m = m.toString().padStart(2, '0');
+            let time = h + ":" + m + ":"+ s + " " + x;
+    document.getElementById("show").innerHTML = time;
+}
+function remove(){
+    let oldString = document.getElementById("txt").value;
+    let newString = oldString.slice (1, -1);
+    document.getElementById("new").innerHTML = newString;
+}
+
+
+ 
+</script>
+
+
+</body>
+</html>
